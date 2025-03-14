@@ -26,7 +26,7 @@ const sessionGuard = (ctx, next) => {
   const userId = ctx.from.id;
 
   if (stoppedUsers.has(userId)) {
-    return ctx.reply("🚫 Your session is paused. Try again later.");
+    return ctx.reply("🚫 Your session is paused. Try again later at least after 2 minutes or later.");
   }
 
   return next();
@@ -43,7 +43,7 @@ bot.command("stop", (ctx) => {
 
   if (stoppedUsers.has(userId)) {
     return ctx.reply(
-      "🚫 You have already stopped your session. Try again later at least after 2 minutes or later."
+      "🚫 You have already stopped your session."
     );
   }
 
